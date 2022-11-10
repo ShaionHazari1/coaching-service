@@ -9,6 +9,7 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
+            <Knowledge></Knowledge>
   
             
         </div>
