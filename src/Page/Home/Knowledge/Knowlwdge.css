@@ -1,0 +1,19 @@
+.knowledgeText{
+    background:#06113C;
+    color:white;
+    padding:50px 30px;
+    height:450px;
+}
+.knowledgeText:hover{
+    color:white;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    background: black
+}
+.knowledgeTitle{
+    color:#06113C;
+
+}
