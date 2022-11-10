@@ -38,12 +38,17 @@ const AuthProvider = ({children}) => {
         }
     }, [])
 
+    
+    const logOut = () =>{
+        return signOut(auth)
+     }
     const authInfo = {
         user, 
         loading,
         createUser, 
         login, 
-        providerLogin
+        providerLogin,
+        logOut
       
     }
 

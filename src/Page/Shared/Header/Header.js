@@ -1,38 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/images/TourImage/the-travelers.svg'
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import './Header.css'
 
 const Header = () => {
-    const menuItems = <>
-        <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>
-        <li className='font-semibold'><Link to='/coaching'> My Service</Link></li>
-        <li className='font-semibold'><Link to='/blog'>Blogs</Link></li>
-     
-
-    </>
+    const {user, logOut} = useContext(AuthContext);
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .then()
+      }
+    
     return (
-        <div className="navbar h-20 mb-12 pt-12 bg-base-100">
-            <div className="navbar-start">
-          
-                <div className="dropdown">
-                <Link to="/" className="btn btn-ghost normal-case text-xl">
-                        <img className='w-1/12' src={logo} alt="" />
-                    </Link>
-                    
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        {menuItems}
-                    </ul>
-                </div>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
-                    {menuItems}
-                </ul>
-            </div>
+        <div>
+            <div className="navbar navBarBg text-primary-content">
+            <Link className='btn btn-ghost normal-case text-3xl' to="/">Food ServerMan</Link>
+           <Link className='btn btn-ghost normal-case text-xl' to="/home">Home</Link>
+           <Link className='btn btn-ghost normal-case text-xl' to="/blog">Blog </Link>
+           
+           {
+                user?.email ?
+               <> 
+                <Link className='btn btn-ghost normal-case text-xl' to="/review">MY Reviews</Link>
+                <Link className='btn btn-ghost normal-case text-xl' to="/addservice">Add Service </Link>
+                <Link className='btn btn-ghost normal-case text-xl' onClick={()=>{handleLogOut()}}>Log Out </Link>
+               </>
+                :
+                <Link className='btn btn-ghost normal-case text-xl' to="/login">Login </Link>
+           }
+           
+           
+</div>
         </div>
     );
 };
