@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import UseTitle from '../../Hooks/UseTitle';
 
 const Review = () => {
+    UseTitle('Review')
     const {user} = useContext(AuthContext)
     return (
         <div>

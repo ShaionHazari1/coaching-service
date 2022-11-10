@@ -4,6 +4,7 @@ import Home from "../../Page/Home/Home/Home";
 import Login from "../../Page/Home/Login/Login";
 import SignUp from "../../Page/Home/SignUp/SignUp";
 import Review from "../../Page/Reviews/Review";
+import DesplayServiceDetails from "../../Page/Service/DesplayServiceDetails";
 import Service from "../../Page/Service/Service";
 import ServiceDetails from "../../Page/Service/ServiceDetails";
 import PrivateRoutes from "../../Routes/PrivateRoutes/PrivateRoutes";
@@ -49,8 +50,8 @@ const router = createBrowserRouter([
               },
               {
                 path:'/service/:id',
-                element: <PrivateRoutes><ServiceDetails></ServiceDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                element: <PrivateRoutes><DesplayServiceDetails></DesplayServiceDetails></PrivateRoutes>,
+                loader: ({params}) => fetch(`https://travel-server-delta.vercel.app/services/${params.id}`)
               }
              
         ]

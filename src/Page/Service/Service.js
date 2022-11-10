@@ -4,7 +4,7 @@ import ServiceDetails from './ServiceDetails';
 const Service = () => {
     const [services, setServices ] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/allService')
+        fetch('https://travel-server-delta.vercel.app/allService')
         .then(res => res.json())
         .then(data => setServices(data))
        },[])
